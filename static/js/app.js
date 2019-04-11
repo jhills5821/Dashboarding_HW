@@ -41,7 +41,7 @@ function buildCharts(sample) {
         marker: {
           size: values,
           color: ids,
-          colorscale: 'Earth'
+          colorscale: 'Portland'
         }
       }
     ]
