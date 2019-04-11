@@ -27,31 +27,30 @@ function buildCharts(sample) {
   var url = `/samples/${sample}`
   d3.json(url).then(function(data) {
     
-    const ids = data.otu_ids;
-    const labels = data.otu_labels;
-    const values = data.sample_values;
+    var ids = data.otu_ids;
+    var labels = data.otu_labels;
+    var values = data.sample_values;
+
     // @TODO: Build a Bubble Chart using the sample data
-    var bubbleTrace = [
+    let bubbleData = [
       {
         x: ids,
         y: values,
         text: labels,
-        mode: "markers",
-        maker: {
-          size: [parseInt(values)],
-          sizeref: 2,
-          sizemode: "diameter",
-          color: [ids],
-          coloscale: "Portland"
+        mode: 'markers',
+        marker: {
+          size: values,
+          color: ids,
+          colorscale: 'Earth'
         }
       }
     ]
 
-    var bubbleLayout = {
+    let bubbleLayout = {
       xaxis: {title: "OTU ID"}
     }
       
-    Plotly.plot("bubble", bubbleTrace, bubbleLayout);
+    Plotly.plot("bubble", bubbleData, bubbleLayout);
 
       // @TODO: Build a Pie Chart
     // HINT: You will need to use slice() to grab the top 10 sample_values,
