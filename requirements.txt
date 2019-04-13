@@ -13,4 +13,4 @@ six==1.11.0
 SQLAlchemy==1.2.10
 Werkzeug==0.14.1
 
-heroku run -a app.py
+heroku run app.py
