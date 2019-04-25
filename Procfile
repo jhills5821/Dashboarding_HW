@@ -1,1 +1,1 @@
-web: gunicorn BB_diversity.app:app
+web: gunicorn app:app
